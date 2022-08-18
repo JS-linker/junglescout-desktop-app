@@ -1,0 +1,17 @@
+{
+  "name": "junglescout-desktop-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^20.0.3",
+    "electron-chrome-extensions": "^3.9.0",
+    "electron-devtools-installer": "^3.2.0"
+  }
+}
