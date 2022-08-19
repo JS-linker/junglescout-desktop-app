@@ -1,5 +1,5 @@
-const { app, BrowserWindow } = require("electron");
-const installer = require("electron-devtools-installer");
+const { app, BrowserWindow, session } = require("electron");
+const path = require("path");
 
 const createWindow = async () => {
   const win = new BrowserWindow({
@@ -7,16 +7,17 @@ const createWindow = async () => {
     height: 600,
   });
 
-  await installer
-    .default({
-      ...installer.REDUX_DEVTOOLS,
-      id: "bckjlihkmgolmgkchbpiponapgjenaoa",
-    })
-    .then((name) => console.log(`Added Extension:  ${name}`))
+  await session.defaultSession
+    .loadExtension(
+      // path.join(__dirname, "../../work/extension-pro/jsp/build/chrome")
+      path.join(__dirname, "extension")
+    )
+    .then(({ id }) => console.log(`Added Extension:  ${id}`))
     .catch((err) => console.log("An error occurred: ", err));
 
   await win.loadURL("https://members.junglescout.com");
-  //   await win.loadURL("https://www.amazon.com/s?k=cup&ref=nb_sb_noss_2");
+  // await win.loadURL("https://login.junglescout.com/?redirectRoute=/dashboard");
+  // await win.loadURL("https://www.amazon.com/s?k=cup&ref=nb_sb_noss_2");
   // await win.loadURL("https://www.amazon.com");
 };
 

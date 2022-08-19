@@ -1,0 +1,20 @@
+{
+  "name": "Extension",
+  "description": "Build an Extension!",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": [],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://members.junglescout.com/*",
+        "*://login.junglescout.com/*",
+        "*://www.amazon.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}
